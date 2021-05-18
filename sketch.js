@@ -122,9 +122,10 @@ function setup() {
 
 function draw() {
   background("black");
-  
+
   camera.position.y = skeleton.y - 58
   
+  // bg = image(bgI,0,0,600,300);
   skeleton.velocityY = skeleton.velocityY + 0.8;
 
   skeleton.collide(invisibleGround);
@@ -226,7 +227,7 @@ function draw() {
 
   }
   if (skeleton.isTouching(pitGroup) || skeleton.isTouching(ghostGroup)) {
-
+    
     gameState = "end"
     skeleton.changeAnimation("death");
     if (skeleton.isTouching(pitGroup)) {
@@ -234,6 +235,7 @@ function draw() {
       camera.position.y = skeleton.position.y - 95
     } else {
       invisibleGround.y = 260;
+      
     }
 
   }

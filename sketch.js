@@ -122,7 +122,9 @@ function setup() {
 
 function draw() {
   background("black");
-  // bg = image(bgI,0,0,600,300);
+  
+  camera.position.y = skeleton.y - 58
+  
   skeleton.velocityY = skeleton.velocityY + 0.8;
 
   skeleton.collide(invisibleGround);
@@ -229,6 +231,7 @@ function draw() {
     skeleton.changeAnimation("death");
     if (skeleton.isTouching(pitGroup)) {
       invisibleGround.y = 300;
+      camera.position.y = skeleton.position.y - 95
     } else {
       invisibleGround.y = 260;
     }
@@ -274,7 +277,7 @@ function draw() {
     text("Score- " + score, graveStone.x - 55, graveStone.y + 10);
   }
 
-  camera.position.y = skeleton.y - 58
+ 
 }
 
 function pits() {
